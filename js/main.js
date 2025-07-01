@@ -144,47 +144,328 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ===== SKILL ITEM COUNTER ANIMATION =====
-const animateNumbers = () => {
-  const skillItems = document.querySelectorAll(".skill-item[data-level]");
+// ===== PROJECT FILTERING =====
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
 
-  skillItems.forEach((item) => {
-    const level = parseInt(item.getAttribute("data-level"));
-    const skillName = item.querySelector(".skill-name");
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // Remove active class from all buttons
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    // Add active class to clicked button
+    button.classList.add("active");
 
-    if (skillName && level) {
-      let currentNumber = 0;
-      const increment = level / 50; // Animation duration control
+    const filterValue = button.getAttribute("data-filter");
 
-      const updateNumber = () => {
-        if (currentNumber < level) {
-          currentNumber += increment;
-          skillName.textContent = `${
-            skillName.textContent.split(" ")[0]
-          } (${Math.floor(currentNumber)}%)`;
-          requestAnimationFrame(updateNumber);
-        } else {
-          skillName.textContent = `${
-            skillName.textContent.split(" ")[0]
-          } (${level}%)`;
-        }
-      };
+    projectCards.forEach((card) => {
+      const category = card.getAttribute("data-category");
 
-      // Start animation when section is visible
-      const aboutSection = document.querySelector(".about-section");
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => updateNumber(), 1000);
-            sectionObserver.unobserve(entry.target);
-          }
-        });
-      });
-
-      sectionObserver.observe(aboutSection);
-    }
+      if (filterValue === "all" || category === filterValue) {
+        card.classList.remove("hide");
+        card.classList.add("show");
+      } else {
+        card.classList.remove("show");
+        card.classList.add("hide");
+      }
+    });
   });
+});
+
+// ===== PROJECT MODAL FUNCTIONALITY =====
+const modal = document.getElementById("projectModal");
+const closeModal = document.getElementById("closeModal");
+const viewProjectButtons = document.querySelectorAll(".view-project");
+
+// Project data
+const projectsData = {
+  1: {
+    title: "ShopMaster E-commerce",
+    description:
+      "A comprehensive e-commerce platform built with PHP and Laravel, featuring advanced inventory management, secure payment processing, real-time analytics, and responsive design. The platform supports multiple vendors, automated order processing, and includes a powerful admin dashboard for complete business management.",
+    features: [
+      "Multi-vendor marketplace functionality",
+      "Secure payment gateway integration (Stripe, PayPal)",
+      "Real-time inventory tracking and alerts",
+      "Advanced search and filtering system",
+      "Customer review and rating system",
+      "Order tracking and notification system",
+      "Responsive admin dashboard with analytics",
+      "Email marketing integration",
+    ],
+    technologies: [
+      "PHP",
+      "Laravel",
+      "JavaScript",
+      "MySQL",
+      "Bootstrap",
+      "Stripe API",
+      "Redis",
+    ],
+    highlights: [
+      "Implemented secure payment processing handling $50K+ monthly transactions",
+      "Built scalable architecture supporting 1000+ concurrent users",
+      "Integrated real-time analytics dashboard with Chart.js",
+      "Optimized database queries reducing page load time by 60%",
+    ],
+    github: "https://github.com/yourusername/shopmaster-ecommerce",
+    demo: "https://shopmaster-demo.com",
+  },
+  2: {
+    title: "TaskFlow Pro",
+    description:
+      "A modern task management application built with React, featuring intuitive drag-and-drop functionality, real-time collaboration, progress tracking, and team management. The application provides a seamless user experience with responsive design and offline capability.",
+    features: [
+      "Drag-and-drop task organization",
+      "Real-time team collaboration",
+      "Project timeline and Gantt charts",
+      "File attachment and sharing",
+      "Task dependencies and subtasks",
+      "Time tracking and reporting",
+      "Custom workflow creation",
+      "Mobile-responsive design",
+    ],
+    technologies: [
+      "React",
+      "JavaScript",
+      "CSS3",
+      "REST API",
+      "Context API",
+      "Local Storage",
+    ],
+    highlights: [
+      "Implemented drag-and-drop using React DnD library",
+      "Built real-time updates using WebSocket connections",
+      "Achieved 98% user satisfaction in beta testing",
+      "Reduced project management overhead by 40%",
+    ],
+    github: "https://github.com/yourusername/taskflow-pro",
+    demo: "https://taskflow-demo.com",
+  },
+  3: {
+    title: "ChatConnect",
+    description:
+      "A real-time messaging application built with Node.js and Socket.io, featuring end-to-end encryption, file sharing, group chats, and voice/video calling. The application supports thousands of concurrent users with high-performance message delivery and offline message storage.",
+    features: [
+      "Real-time messaging with Socket.io",
+      "End-to-end message encryption",
+      "File and media sharing",
+      "Group chat functionality",
+      "Voice and video calling",
+      "Message history and search",
+      "Online/offline status indicators",
+      "Push notifications",
+    ],
+    technologies: [
+      "Node.js",
+      "Socket.io",
+      "Vue.js",
+      "MongoDB",
+      "WebRTC",
+      "JWT",
+      "Docker",
+    ],
+    highlights: [
+      "Handles 5000+ concurrent connections with 99.9% uptime",
+      "Implemented AES-256 encryption for message security",
+      "Built WebRTC integration for voice/video calls",
+      "Deployed using Docker containers on AWS",
+    ],
+    github: "https://github.com/yourusername/chatconnect",
+    demo: "https://chatconnect-demo.com",
+  },
+  4: {
+    title: "DataInsight Pro",
+    description:
+      "A comprehensive analytics dashboard built with PHP Laravel and Python, featuring advanced data visualization, machine learning insights, automated reporting, and real-time data processing. The platform serves multiple clients with customizable dashboards and API integrations.",
+    features: [
+      "Interactive data visualization charts",
+      "Machine learning predictive analytics",
+      "Automated report generation",
+      "Real-time data processing",
+      "Multi-tenant architecture",
+      "API integrations and webhooks",
+      "Custom dashboard builder",
+      "Export functionality (PDF, Excel, CSV)",
+    ],
+    technologies: [
+      "PHP",
+      "Laravel",
+      "Python",
+      "MySQL",
+      "Chart.js",
+      "Docker",
+      "Redis",
+      "Pandas",
+    ],
+    highlights: [
+      "Processes 1M+ data points daily with 99% accuracy",
+      "Reduced manual reporting time by 85%",
+      "Implemented ML models achieving 92% prediction accuracy",
+      "Serves 500+ enterprise clients across multiple industries",
+    ],
+    github: "https://github.com/yourusername/datainsight-pro",
+    demo: "https://datainsight-demo.com",
+  },
+  5: {
+    title: "Dynamic Portfolio",
+    description:
+      "A responsive portfolio website featuring smooth animations, dark mode toggle, contact form integration, and optimized performance. Built with modern web technologies and best practices for SEO and accessibility.",
+    features: [
+      "Responsive design for all devices",
+      "Smooth CSS animations and transitions",
+      "Dark/light mode toggle",
+      "Contact form with validation",
+      "SEO optimized structure",
+      "Accessibility compliant (WCAG 2.1)",
+      "Progressive Web App features",
+      "Performance optimized (95+ Lighthouse score)",
+    ],
+    technologies: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Responsive Design",
+      "PWA",
+      "SEO",
+    ],
+    highlights: [
+      "Achieved 98+ Google Lighthouse performance score",
+      "Implemented lazy loading reducing initial load time by 40%",
+      "Built with mobile-first responsive design approach",
+      "Integrated Google Analytics and contact form automation",
+    ],
+    github: "https://github.com/yourusername/dynamic-portfolio",
+    demo: "https://yourportfolio.com",
+  },
+  6: {
+    title: "MicroAPI Gateway",
+    description:
+      "A scalable API gateway built with Node.js and Express, featuring rate limiting, authentication, load balancing, comprehensive logging, and microservices orchestration. The gateway handles millions of requests daily with high availability and security.",
+    features: [
+      "Rate limiting and throttling",
+      "JWT-based authentication",
+      "Load balancing across services",
+      "Request/response logging",
+      "API versioning support",
+      "Health check monitoring",
+      "Circuit breaker pattern",
+      "Comprehensive documentation",
+    ],
+    technologies: [
+      "Node.js",
+      "Express",
+      "Redis",
+      "JWT",
+      "AWS",
+      "Docker",
+      "Nginx",
+      "Prometheus",
+    ],
+    highlights: [
+      "Handles 10M+ API requests daily with 99.99% uptime",
+      "Reduced API response time by 45% through optimization",
+      "Implemented auto-scaling handling traffic spikes",
+      "Built comprehensive monitoring and alerting system",
+    ],
+    github: "https://github.com/yourusername/microapi-gateway",
+    demo: "https://api-gateway-demo.com",
+  },
 };
+
+// Open modal functionality
+viewProjectButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const projectId = button.getAttribute("data-project");
+    showProjectModal(projectId);
+  });
+});
+
+// Close modal functionality
+closeModal.addEventListener("click", hideProjectModal);
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    hideProjectModal();
+  }
+});
+
+// Escape key to close modal
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("active")) {
+    hideProjectModal();
+  }
+});
+
+function showProjectModal(projectId) {
+  const project = projectsData[projectId];
+  if (!project) return;
+
+  // Populate modal content
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalDescription").textContent = project.description;
+  document.getElementById("modalGithub").href = project.github;
+  document.getElementById("modalDemo").href = project.demo;
+
+  // Populate features
+  const featuresList = document.getElementById("modalFeatures");
+  featuresList.innerHTML = "";
+  project.features.forEach((feature) => {
+    const li = document.createElement("li");
+    li.textContent = feature;
+    featuresList.appendChild(li);
+  });
+
+  // Populate technologies
+  const techContainer = document.getElementById("modalTech");
+  techContainer.innerHTML = "";
+  project.technologies.forEach((tech) => {
+    const span = document.createElement("span");
+    span.className = `tech-tag ${tech.toLowerCase().replace(/[^a-z0-9]/g, "")}`;
+    span.textContent = tech;
+    techContainer.appendChild(span);
+  });
+
+  // Populate highlights
+  const highlightsList = document.getElementById("modalHighlights");
+  highlightsList.innerHTML = "";
+  project.highlights.forEach((highlight) => {
+    const li = document.createElement("li");
+    li.textContent = highlight;
+    highlightsList.appendChild(li);
+  });
+
+  // Show modal
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function hideProjectModal() {
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// ===== PROJECT CARDS INTERSECTION OBSERVER =====
+const projectObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = `${
+          Array.from(projectCards).indexOf(entry.target) * 0.1
+        }s`;
+        entry.target.classList.add("animate-in");
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  }
+);
+
+// Observe project cards
+projectCards.forEach((card) => {
+  projectObserver.observe(card);
+});
 
 // ===== TYPING ANIMATION FOR CODE BLOCK =====
 const codeElement = document.querySelector(".code-content pre code");

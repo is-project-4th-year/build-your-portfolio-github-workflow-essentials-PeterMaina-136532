@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peter Maina - Software Developer Portfolio</title>
+    <title>Your Name - Software Developer Portfolio</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -55,7 +55,7 @@
           <div class="hero-text">
             <p class="hero-greeting">👋 Hello, I'm</p>
             <h1 class="hero-name">
-              <span class="name-highlight">Peter Maina</span>
+              <span class="name-highlight">Your Name</span>
             </h1>
             <h2 class="hero-title">Full-Stack Software Developer</h2>
             <p class="hero-description">
@@ -105,7 +105,7 @@
               <div class="code-content">
                 <pre><code><span class="code-comment">// Building amazing things with code</span>
 <span class="code-keyword">class</span> <span class="code-class">Developer</span> {
-    <span class="code-keyword">public</span> <span class="code-variable">$name</span> = <span class="code-string">'Peter Maina'</span>;
+    <span class="code-keyword">public</span> <span class="code-variable">$name</span> = <span class="code-string">'Your Name'</span>;
     <span class="code-keyword">public</span> <span class="code-variable">$skills</span> = [
         <span class="code-string">'PHP'</span>, <span class="code-string">'JavaScript'</span>, 
         <span class="code-string">'React'</span>, <span class="code-string">'Laravel'</span>
@@ -352,12 +352,322 @@
       </div>
     </section>
 
-    <section id="projects" class="section-placeholder">
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
       <div class="container">
-        <h2>Projects Section</h2>
-        <p>Will be implemented in Issue #3</p>
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            A showcase of my recent work and technical achievements
+          </p>
+        </div>
+
+        <div class="projects-filter">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+          <button class="filter-btn" data-filter="backend">Backend</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: E-commerce Platform -->
+          <div class="project-card" data-category="fullstack" data-project="1">
+            <div class="project-image">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <button class="action-btn view-project" data-project="1">
+                    <i class="fas fa-eye"></i>
+                    <span>View Details</span>
+                  </button>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-placeholder">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">ShopMaster E-commerce</h3>
+              <p class="project-description">
+                Full-featured e-commerce platform with payment integration,
+                inventory management, and real-time analytics.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag php">PHP</span>
+                <span class="tech-tag laravel">Laravel</span>
+                <span class="tech-tag js">JavaScript</span>
+                <span class="tech-tag mysql">MySQL</span>
+                <span class="tech-tag bootstrap">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Task Management App -->
+          <div class="project-card" data-category="frontend" data-project="2">
+            <div class="project-image">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <button class="action-btn view-project" data-project="2">
+                    <i class="fas fa-eye"></i>
+                    <span>View Details</span>
+                  </button>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-placeholder">
+                <i class="fas fa-tasks"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">TaskFlow Pro</h3>
+              <p class="project-description">
+                Modern task management application with drag-and-drop
+                functionality, team collaboration, and progress tracking.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag react">React</span>
+                <span class="tech-tag js">JavaScript</span>
+                <span class="tech-tag css">CSS3</span>
+                <span class="tech-tag api">REST API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Real-time Chat System -->
+          <div class="project-card" data-category="fullstack" data-project="3">
+            <div class="project-image">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <button class="action-btn view-project" data-project="3">
+                    <i class="fas fa-eye"></i>
+                    <span>View Details</span>
+                  </button>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-placeholder">
+                <i class="fas fa-comments"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">ChatConnect</h3>
+              <p class="project-description">
+                Real-time messaging application with file sharing, group chats,
+                and end-to-end encryption.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag nodejs">Node.js</span>
+                <span class="tech-tag socket">Socket.io</span>
+                <span class="tech-tag vue">Vue.js</span>
+                <span class="tech-tag mongodb">MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Analytics Dashboard -->
+          <div class="project-card" data-category="backend" data-project="4">
+            <div class="project-image">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <button class="action-btn view-project" data-project="4">
+                    <i class="fas fa-eye"></i>
+                    <span>View Details</span>
+                  </button>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-placeholder">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">DataInsight Pro</h3>
+              <p class="project-description">
+                Comprehensive analytics dashboard with data visualization,
+                reporting, and machine learning insights.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag php">PHP</span>
+                <span class="tech-tag laravel">Laravel</span>
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag mysql">MySQL</span>
+                <span class="tech-tag docker">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Portfolio Website -->
+          <div class="project-card" data-category="frontend" data-project="5">
+            <div class="project-image">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <button class="action-btn view-project" data-project="5">
+                    <i class="fas fa-eye"></i>
+                    <span>View Details</span>
+                  </button>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-placeholder">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Dynamic Portfolio</h3>
+              <p class="project-description">
+                Responsive portfolio website with smooth animations, dark mode
+                toggle, and contact form integration.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag html">HTML5</span>
+                <span class="tech-tag css">CSS3</span>
+                <span class="tech-tag js">JavaScript</span>
+                <span class="tech-tag responsive">Responsive</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: API Gateway -->
+          <div class="project-card" data-category="backend" data-project="6">
+            <div class="project-image">
+              <div class="project-overlay">
+                <div class="project-actions">
+                  <button class="action-btn view-project" data-project="6">
+                    <i class="fas fa-eye"></i>
+                    <span>View Details</span>
+                  </button>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="#" class="action-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-placeholder">
+                <i class="fas fa-server"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">MicroAPI Gateway</h3>
+              <p class="project-description">
+                Scalable API gateway with rate limiting, authentication, load
+                balancing, and comprehensive logging.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag nodejs">Node.js</span>
+                <span class="tech-tag express">Express</span>
+                <span class="tech-tag redis">Redis</span>
+                <span class="tech-tag jwt">JWT</span>
+                <span class="tech-tag aws">AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal">
+      <div class="modal-container">
+        <button class="modal-close" id="closeModal">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle">Project Title</h2>
+            <div class="modal-links">
+              <a href="#" class="modal-btn" id="modalGithub" target="_blank">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="#" class="modal-btn" id="modalDemo" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Live Demo</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="modal-body">
+            <div class="modal-image">
+              <div class="modal-placeholder" id="modalImage">
+                <i class="fas fa-image"></i>
+              </div>
+            </div>
+
+            <div class="modal-details">
+              <div class="modal-section">
+                <h3>Project Overview</h3>
+                <p id="modalDescription">
+                  Project description will appear here...
+                </p>
+              </div>
+
+              <div class="modal-section">
+                <h3>Key Features</h3>
+                <ul id="modalFeatures">
+                  <!-- Features will be dynamically populated -->
+                </ul>
+              </div>
+
+              <div class="modal-section">
+                <h3>Technologies Used</h3>
+                <div class="modal-tech" id="modalTech">
+                  <!-- Tech tags will be dynamically populated -->
+                </div>
+              </div>
+
+              <div class="modal-section">
+                <h3>Development Highlights</h3>
+                <ul id="modalHighlights">
+                  <!-- Highlights will be dynamically populated -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section id="contact" class="section-placeholder">
       <div class="container">
