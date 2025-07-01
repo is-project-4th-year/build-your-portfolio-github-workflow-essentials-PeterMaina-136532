@@ -86,15 +86,105 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("animate-in");
+
+      // Trigger skill bar animations
+      if (entry.target.classList.contains("skills-showcase")) {
+        animateSkillBars();
+      }
     }
   });
 }, observerOptions);
 
 // Observe elements for animation
 document.addEventListener("DOMContentLoaded", () => {
-  const animateElements = document.querySelectorAll(".hero-text > *");
+  const animateElements = document.querySelectorAll(
+    ".hero-text > *, .about-text, .skills-showcase, .section-header"
+  );
   animateElements.forEach((el) => observer.observe(el));
 });
+
+// ===== SKILL BAR ANIMATIONS =====
+const animateSkillBars = () => {
+  const skillItems = document.querySelectorAll(".skill-item");
+
+  skillItems.forEach((item, index) => {
+    const progressBar = item.querySelector(".skill-progress");
+    const level = item.getAttribute("data-level");
+
+    if (progressBar && level) {
+      setTimeout(() => {
+        progressBar.style.width = level + "%";
+        progressBar.style.setProperty("--skill-width", level + "%");
+      }, index * 200); // Stagger the animations
+    }
+  });
+};
+
+// ===== TOOL ITEMS HOVER EFFECTS =====
+document.addEventListener("DOMContentLoaded", () => {
+  const toolItems = document.querySelectorAll(".tool-item");
+
+  toolItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      item.style.background =
+        "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+      const icon = item.querySelector("i");
+      const text = item.querySelector("span");
+      if (icon) icon.style.color = "white";
+      if (text) text.style.color = "white";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.style.background = "";
+      const icon = item.querySelector("i");
+      const text = item.querySelector("span");
+      if (icon) icon.style.color = "";
+      if (text) text.style.color = "";
+    });
+  });
+});
+
+// ===== SKILL ITEM COUNTER ANIMATION =====
+const animateNumbers = () => {
+  const skillItems = document.querySelectorAll(".skill-item[data-level]");
+
+  skillItems.forEach((item) => {
+    const level = parseInt(item.getAttribute("data-level"));
+    const skillName = item.querySelector(".skill-name");
+
+    if (skillName && level) {
+      let currentNumber = 0;
+      const increment = level / 50; // Animation duration control
+
+      const updateNumber = () => {
+        if (currentNumber < level) {
+          currentNumber += increment;
+          skillName.textContent = `${
+            skillName.textContent.split(" ")[0]
+          } (${Math.floor(currentNumber)}%)`;
+          requestAnimationFrame(updateNumber);
+        } else {
+          skillName.textContent = `${
+            skillName.textContent.split(" ")[0]
+          } (${level}%)`;
+        }
+      };
+
+      // Start animation when section is visible
+      const aboutSection = document.querySelector(".about-section");
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => updateNumber(), 1000);
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      });
+
+      sectionObserver.observe(aboutSection);
+    }
+  });
+};
 
 // ===== TYPING ANIMATION FOR CODE BLOCK =====
 const codeElement = document.querySelector(".code-content pre code");
