@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peter Maina - Software Developer Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#home" class="nav-logo-link">
+            <span class="logo-text">Peter Maina</span>
+            <span class="logo-dot">.</span>
+          </a>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+        <div class="nav-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="hero-greeting">👋 Hello, I'm</p>
+            <h1 class="hero-name">
+              <span class="name-highlight">Peter Maina</span>
+            </h1>
+            <h2 class="hero-title">Full-Stack Software Developer</h2>
+            <p class="hero-description">
+              Passionate software developer with a Computer Science degree from
+              Strathmore University. Specialized in PHP, JavaScript, and
+              contemporary frameworks, building innovative web applications that
+              solve real-world problems.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">
+                <i class="fas fa-code"></i>
+                View My Work
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                <i class="fas fa-envelope"></i>
+                Get In Touch
+              </a>
+            </div>
+
+            <div class="hero-social">
+              <a href="#" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="code-title">portfolio.php</span>
+              </div>
+              <div class="code-content">
+                <pre><code><span class="code-comment">// Building amazing things with code</span>
+<span class="code-keyword">class</span> <span class="code-class">Developer</span> {
+    <span class="code-keyword">public</span> <span class="code-variable">$name</span> = <span class="code-string">'Peter Maina'</span>;
+    <span class="code-keyword">public</span> <span class="code-variable">$skills</span> = [
+        <span class="code-string">'PHP'</span>, <span class="code-string">'JavaScript'</span>, 
+        <span class="code-string">'React'</span>, <span class="code-string">'Laravel'</span>
+    ];
+    
+    <span class="code-keyword">public function</span> <span class="code-function">buildAmazingThings</span>() {
+        <span class="code-keyword">return</span> <span class="code-string">'Let\'s create together!'</span>;
+    }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <span class="scroll-text">Scroll to explore</span>
+        </div>
+      </div>
+
+      <!-- Animated Background Elements -->
+      <div class="bg-animation">
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+          <div class="shape shape-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder sections for future issues -->
+    <section id="about" class="section-placeholder">
+      <div class="container">
+        <h2>About Section</h2>
+        <p>Will be implemented in Issue #2</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section-placeholder">
+      <div class="container">
+        <h2>Projects Section</h2>
+        <p>Will be implemented in Issue #3</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section-placeholder">
+      <div class="container">
+        <h2>Contact Section</h2>
+        <p>Will be implemented in Issue #4</p>
+      </div>
+    </section>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
